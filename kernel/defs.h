@@ -17,6 +17,10 @@ void            bwrite(struct buf*);
 void            bpin(struct buf*);
 void            bunpin(struct buf*);
 
+// random.c
+void            randominit(void);
+uint8           lfsr_char(uint8 lfsr);
+
 // console.c
 void            consoleinit(void);
 void            consoleintr(int);
@@ -33,7 +37,7 @@ void            fileinit(void);
 int             fileread(struct file*, uint64, int n);
 int             filestat(struct file*, uint64 addr);
 int             filewrite(struct file*, uint64, int n);
-
+int             fileseek(struct file *f, int offset, int whence);
 // fs.c
 void            fsinit(int);
 int             dirlink(struct inode*, char*, uint);
